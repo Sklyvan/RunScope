@@ -8,7 +8,7 @@ def get_zone(value: Optional[float], zones: list[tuple[int, int]]) -> Optional[i
     if value is None:
         return None
     for i, (low, high) in enumerate(zones, start=1):
-        if low <= value <= high:
+        if (low <= value <= high) or (high <= value <= low):  # Handle both ascending and descending ranges
             return i
     return None
 
