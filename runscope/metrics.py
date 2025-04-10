@@ -1,4 +1,5 @@
 from .models import RunData, RunMetrics
+from .config import BODY_MASS_KG, HR_REST, HR_MAX
 from statistics import mean
 from typing import Optional
 
@@ -103,7 +104,7 @@ def compute_vo2max_auto(
 
     return None
 
-def compute_form_power(run_data: RunData, body_mass_kg: float = 65.0) -> Optional[float]:
+def compute_form_power(run_data: RunData, body_mass_kg: float) -> Optional[float]:
     g = 9.81
     verticals = [dp.vertical_oscillation for dp in run_data.data_points if dp.vertical_oscillation]
     gcts = [dp.ground_contact_time for dp in run_data.data_points if dp.ground_contact_time]
@@ -147,8 +148,11 @@ def compute_run_metrics(run_data: RunData) -> RunMetrics:
         training_effect_anaerobic=None,
         ground_contact_balance=compute_gct_balance(run_data),
         vertical_ratio=compute_vertical_ratio(run_data),
-        form_power=compute_form_power(run_data),
-        vo2max_estimation=compute_vo2max_auto(run_data, body_mass_kg=60, hr_rest=45, hr_max=190), # TODO: These values should be passed from the user
+        form_power=compute_form_power(run_data, body_mass_kg=BODY_MASS_KG),
+        vo2max_estimation=compute_vo2max_auto(run_data,
+                                              body_mass_kg=BODY_MASS_KG,
+                                              hr_rest=HR_REST,
+                                              hr_max=HR_MAX),
         running_efficiency=compute_running_efficiency(run_data),
         execution_score=None,
         fatigue_index=compute_fatigue_index(run_data)

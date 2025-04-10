@@ -12,3 +12,6 @@ with open(ZONE_FILE, 'r') as file:
 HR_ZONES = zones.get("HR_ZONES", [])
 PACE_ZONES = zones.get("PACE_ZONES", [])
 CADENCE_ZONES = zones.get("CADENCE_ZONES", [])
+BODY_MASS_KG = zones.get("BODY_MASS_KG", None)
+HR_REST = zones.get("HR_REST", None)
+HR_MAX = zones.get("HR_MAX", None)
