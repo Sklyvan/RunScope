@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "RunScope"
+version = "0.1.0"
+description = "Compute and analyze advanced running metrics from GPS data"
+authors = [
+    { name="Joan Gracia", email="joangraciataribo@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+dependencies = [
+    "pip>=25.0.1"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Sklyvan/RunScope"
+"Bug Tracker" = "https://github.com/Sklyvan/RunScope/issues"
