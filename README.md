@@ -13,7 +13,6 @@
 ## 📦 What is RunScope?
 
 **RunScope** is a Python library that processes `TCX` files to compute **advanced running metrics** using science-backed formulas.  
-It’s your personal data analyst for every training session.
 
 🎯 Whether you're chasing a SUB-3 marathon or optimizing cadence for efficiency — RunScope has your back.
 
